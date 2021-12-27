@@ -2,7 +2,6 @@ from typing import Dict
 from fastapi import FastAPI
 
 from datetime import timedelta
-import dateutil.parser as parser
 
 from starlette.responses import RedirectResponse
 
@@ -37,3 +36,4 @@ async def calculator(op_input: schemas.ServiceDate) -> Dict:
     date_outp = date_inp["date"]+ timedelta(days=days_inp)
 
     return {"date": date_outp}
+
