@@ -10,4 +10,4 @@ def divide(a: int, b: int) -> int or str:
     if b != 0:
         return a/b
     else:
-        return "Error detected, you can't use 0 as divider"
+        raise HTTPException(status_code=400, detail="Division by 0 is not supported")
