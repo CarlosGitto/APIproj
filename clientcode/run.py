@@ -6,7 +6,8 @@ import sys
 
 def http_run(args):
     
-    """Provides a default port and start the http server"""
+    """Provides a port (default or custom) and start the http server"""
+
     if len(args) == 1:
         port = 8888     
     elif len(args) == 2:

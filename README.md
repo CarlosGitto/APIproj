@@ -22,7 +22,7 @@ to proceed.
 
 Inside the shell located at `/clientcode` directory run 
 ```
-python -m run.py <port[Optional]>
+python run.py <port[Optional]>
  ```
 `default port` -> [8888]
 
