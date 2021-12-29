@@ -1,1 +1,0 @@
-"""Send a curl request with the followins parameters"""
