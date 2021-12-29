@@ -14,7 +14,11 @@ def test_home_page():
         assert response.status_code == 200
 
 def test_calculator_service():
-    
+    """
+    GIVEN a Flask application configured for testing
+    WHEN a json is submited (POST)
+    THEN check that the response is valid
+    """
     flask_app = app('flask_test.cfg')
 
     
@@ -26,7 +30,11 @@ def test_calculator_service():
         assert response.json() == {"detail": "Division by 0 is not supported"}
 
 def test_date_calculator_service():
-    """Does a test to check the date_calculator service"""
+    """
+    GIVEN a Flask application configured for testing
+    WHEN a json is submited (POST)
+    THEN check that the response is valid
+    """
     
     flask_app = app('flask_test.cfg')
 

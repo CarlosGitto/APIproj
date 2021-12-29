@@ -1,15 +1,22 @@
+// Initial value of Api
 var apiUrl = "http://127.0.0.1:8000";
 
-
-
+//Form of calculator
 const calcForm = document.querySelector("#calc_service");
+
+//Form of date_calculator
 const dateForm = document.querySelector('#date_service');
+
+//Select of api
 const selectApi = document.querySelector('#url_choice');
 
-// var url_choice = document.getElementById('url_choice').value;
-// url_choice.onchange = console.log(url_choice)
+
 
 function apiChange(){
+    /*
+    Change the var url_choice to
+    use the correct api
+    */
     var url_choice = document.getElementById("url_choice").value;
     console.log(url_choice)
     if (url_choice == "flask"){
@@ -23,6 +30,11 @@ function apiChange(){
 
 
 function calcSubmit(event) {
+    /*
+    Make a prevent deafault submit and 
+    send a POST request with the data submited
+    to an api selected
+    */
     event.preventDefault();
 
     const xhr = new XMLHttpRequest();
@@ -42,6 +54,11 @@ function calcSubmit(event) {
 }
 
 function dateSubmit(event) {
+    /*
+    Make a prevent deafault submit and 
+    send a POST request with the data submited
+    to an api selected
+    */
     event.preventDefault();
 
     const xhr = new XMLHttpRequest();
@@ -60,6 +77,10 @@ function dateSubmit(event) {
 
 
 function onRequestHandler1(){
+    /*
+    Return the response of a succesful POST 
+    in CALCULATOR service and put it in on the page
+    */
     if (this.readyState == 4 && this.status== 200){
         // 0 = UNSET, no se ah llamado al metodo open
         // 1 = OPENED, se ah llamado al metodo open
@@ -73,6 +94,10 @@ function onRequestHandler1(){
 }
 
 function onRequestHandler2(){
+    /*
+    Return the response of a succesful POST 
+    in DATE service and put it in on the page
+    */
     if (this.readyState == 4 && this.status== 200){
         // 0 = UNSET, no se ah llamado al metodo open
         // 1 = OPENED, se ah llamado al metodo open
@@ -84,8 +109,11 @@ function onRequestHandler2(){
         HTMLResponse.innerHTML = data["date"];}
 }
 
+// Call the calcSubmit function when submit values in the Calculator
 calcForm.addEventListener('submit', calcSubmit)
 
+// Call the dateSubmit function when submit values in DateCalculator
 dateForm.addEventListener('submit', dateSubmit)
 
+// Call the apiChange function when change values in api selector
 selectApi.addEventListener("change", apiChange);

@@ -5,13 +5,15 @@ from datetime import timedelta
 
 from starlette.responses import RedirectResponse
 
-from . import schemas
+import schemas
 
-from .functions.analizer import analize_func
+from functions.analizer import analize_func
 
 from fastapi.middleware.cors import CORSMiddleware
 
 from fastapi import HTTPException
+
+import uvicorn
 
 app = FastAPI(title="FastAPI Project",
               description="Hello World con FastAPI")
@@ -30,13 +32,18 @@ app.add_middleware(
 )
 
 @app.get("/")
+
 async def main():
     return RedirectResponse(url="/docs")
 
 
 @app.post("/services/calculator/")
 async def calculator(op_input: schemas.ServiceCalculator) -> Dict:
-    """Take two values and a operation type, and return the result"""
+    """
+    Take a json input with 3 values:
+    arg1, agr2 and operation_type
+    then return the result in a json format
+    """
     try:
         operation_resul = analize_func({"a": op_input.arg1, "b":op_input.arg2, "op_type": op_input.op_type})
     except ValueError:
@@ -47,12 +54,16 @@ async def calculator(op_input: schemas.ServiceCalculator) -> Dict:
 
 @app.post("/services/date-fmt")
 async def date_calculator(op_input: schemas.ServiceDate) -> Dict:
-    """Take a date and a number of days and return the date with them"""
-
-
+    """
+    Take a date isoformat
+    and a number of days and return 
+    the date with them
+    """
     date_inp = {"date": op_input.date, "days": op_input.days}
     days_inp = date_inp["days"]
     date_outp = date_inp["date"]+ timedelta(days=days_inp)
 
     return {"date": date_outp}
 
+if __name__ == "__main__":
+    uvicorn.run(f"{__name__}:app", host="127.0.0.1", port=8000, reload=True)

@@ -4,7 +4,7 @@ from .subtract import subtract
 from .summ import summ
 from typing import Dict
 
-"""Analize an argument to know what must do"""
+"""Analize an argument to know what operation must do"""
 
 def analize_func(operation : Dict[int,str]) -> int:
     if operation["op_type"] == "mult":

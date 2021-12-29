@@ -1,47 +1,54 @@
 # Hello World API
 
-### Instructions
-Your task is to develop an http API that will teach you the basics of building web services.
-The project you conduct must be completed twice using two seperate http frameworks in python: flask and fastapi.
-Your job is to develop basic functions that conduct specific tasks the are listed below and expose these services through http locally.
-Both servers must use the same shared service functions, your code must implement proper seperation of concerns and seperate your service layer from your http layer.
-The server must receive requests and respond to request using `JSON` with specific endpoints corresponding to unique individual service functions.
+## Introduction
+This project was created to improve the knowledge and basics from technologies like python, javascript,html and learn the principles of HTTP request bettween clien-server.
 
-In order to test your API and make sure it works you should write bash scripts that use curl to talk to your API, and python scripts that use the request  library.
-Once your app is fully developed you should add unit tests to each endpoint and develop them using the pytest framework.
+## Description
+This is a project that contains two apis, one develop with FastAPI framework and another with Flask framework.
+Both of them can offer same services trough the same functions and paths.
 
-You are encouraged to read the documentation and also research the best practices used for both Flask and Fastapi when you develop your server.
+Also contains an html and a javascript file that their only propouse is to connect and test the services from both apis.
 
-### Service 1 - Calculator
-Create an endpoint at `/services/calculator` that is able to sum, divide, multiply, and subtract two numbers. The incoming JSON must have the following format.
+## Requirements
+Please be sure to have `python 3.10.0` to run this project and read the `requirements.txt` or just do
 ```
-{"a":1, "b":2, "operation":"mul" }
+python -m pip install -r ./requirements.txt
 ```
+to proceed.
 
-The output must have the following format:
-```
-{"result":2}
-```
+##  Get Started
 
-### Service 2 - Date calculator
-Create an endpoint at `/services/date-fmt` that is able to take in a json with a ISO formatted date and a days parameter and will return an ISO formatted date with the original date + days.
-Input JSON
-```
-{"date":"2020-01-01T00:00:00", "days":2}
-```
+## Step 1 
 
-The output must have the following format:
+Inside the shell located at `/clientcode` directory run 
 ```
-{"date":"2020-01-03T00:00:00"}
-```
+python -m http.server
+ ```
+to serve the index.html file locally.
 
-Use curl and the python requests library to carefull craft HTTP requests that you can use to talk to and debug your server.
+## Step 2 - Select the server you would like to use:
 
 
+#### FastAPI
 
-Some helpful links
-1. https://refactoring.guru/refactoring
-2. https://12factor.net/
-3. https://www.restapitutorial.com/
-4. https://fastapi.tiangolo.com/
-5. https://flask.palletsprojects.com/en/2.0.x/
+To star the service go to `/fastapi_proj/app` and run
+```
+python -m main
+
+This will start the services in
+host: 127.0.0.1
+port: 8000
+```
+#### Flask
+To star the service go to `/flask_proj` and run
+
+```
+python -m main
+
+This will start the services in
+host: 127.0.0.1
+port: 5000
+```
+
+
+### To know more about the specific services go to the readme files inside the projects
