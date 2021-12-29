@@ -22,9 +22,12 @@ to proceed.
 
 Inside the shell located at `/clientcode` directory run 
 ```
-python -m http.server
+python -m run.py <port[Optional]>
  ```
-to serve the index.html file locally.
+`default port` -> [8888]
+
+This serve the index.html file locally.
+
 
 ## Step 2 - Select the server you would like to use:
 
@@ -34,21 +37,21 @@ to serve the index.html file locally.
 To star the service go to `/fastapi_proj/app` and run
 ```
 python -m main
-
+```
 This will start the services in
 host: 127.0.0.1
 port: 8000
-```
+
 #### Flask
 To star the service go to `/flask_proj` and run
 
 ```
 python -m main
-
+```
 This will start the services in
 host: 127.0.0.1
 port: 5000
-```
+
 
 ## Step 3 - Send requests or curls
  There are 3 ways of send requests in this project
