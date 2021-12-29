@@ -10,6 +10,9 @@ const dateForm = document.querySelector('#date_service');
 //Select of api
 const selectApi = document.querySelector('#url_choice');
 
+// Initial value of vars on onHandlerRequest function
+var logId = "#calc_app";
+var resulKey = "resul";
 
 
 function apiChange(){
@@ -37,6 +40,9 @@ function calcSubmit(event) {
     */
     event.preventDefault();
 
+    logId = "#calc_app";
+    resulKey = "resul";
+
     const xhr = new XMLHttpRequest();
     xhr.open('POST', `${apiUrl}/services/calculator/`);
     console.log(apiUrl)
@@ -44,7 +50,7 @@ function calcSubmit(event) {
     var arg1 = document.getElementById("arg1").value;
     var arg2 = document.getElementById("arg2").value;
     var op_type = document.getElementById("op_type").value;
-    xhr.onload = onRequestHandler1;
+    xhr.onload = onRequestHandler;
     xhr.send(JSON.stringify({
         "arg1": arg1,
         "arg2": arg2,
@@ -61,13 +67,16 @@ function dateSubmit(event) {
     */
     event.preventDefault();
 
+    logId = "#date_app";
+    resulKey = "date";
+
     const xhr = new XMLHttpRequest();
     xhr.open('POST', `${apiUrl}/services/date-fmt/`);
     xhr.setRequestHeader('Content-Type', 'application/json');
     var date = document.getElementById("date").value;
     var days = document.getElementById("days").value;
     var days_float = parseFloat(days)
-    xhr.onload = onRequestHandler2;
+    xhr.onload = onRequestHandler;
     xhr.send(JSON.stringify({
         "date": date,
         "days": days_float
@@ -76,7 +85,7 @@ function dateSubmit(event) {
 }
 
 
-function onRequestHandler1(){
+function onRequestHandler(){
     /*
     Return the response of a succesful POST 
     in CALCULATOR service and put it in on the page
@@ -88,26 +97,12 @@ function onRequestHandler1(){
         // 3 = LOADING, esta recibiendo la respuesta
         // 4 = DONE, la operacion se completo
         const data = JSON.parse(this.response);
-        const HTMLResponse = document.querySelector("#calc_app");
-        console.log(data["resul"])
-        HTMLResponse.innerHTML = data["resul"];}
+        const HTMLResponse = document.querySelector(logId);
+        console.log(data[resulKey])
+        HTMLResponse.innerHTML = data[resulKey];}
 }
 
-function onRequestHandler2(){
-    /*
-    Return the response of a succesful POST 
-    in DATE service and put it in on the page
-    */
-    if (this.readyState == 4 && this.status== 200){
-        // 0 = UNSET, no se ah llamado al metodo open
-        // 1 = OPENED, se ah llamado al metodo open
-        // 2 = HEADERS_RECEIVED, se esta llamando al metodo send()
-        // 3 = LOADING, esta recibiendo la respuesta
-        // 4 = DONE, la operacion se completo
-        const data = JSON.parse(this.response);
-        const HTMLResponse = document.querySelector("#date_app");
-        HTMLResponse.innerHTML = data["date"];}
-}
+
 
 // Call the calcSubmit function when submit values in the Calculator
 calcForm.addEventListener('submit', calcSubmit)
