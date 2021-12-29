@@ -1,7 +1,7 @@
 # Hello World API
 
 ## Introduction
-This project was created to improve the knowledge and basics from technologies like python, javascript,html and learn the principles of HTTP request bettween clien-server.
+The task is to develop an http API that will teach you the basics of building web services. The project must be completed twice using two seperate http frameworks in python: Flask and Fastapi. The job is to develop basic functions that conduct specific tasks the are listed below and expose these services through http locally. Both servers must use the same shared service functions, the code must implement proper seperation of concerns and seperate the service layer from the http layer. The server must receive requests and respond to request using JSON with specific endpoints corresponding to unique individual service functions.
 
 ## Description
 This is a project that contains two apis, one develop with FastAPI framework and another with Flask framework.
