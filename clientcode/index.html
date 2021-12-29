@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Amazing Application</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+</head>
+
+<body>
+    <Label for="url_choice">Api Choice:</Label>
+    <select name="url_choice" id="url_choice">
+        <option value="fastApi">FastAPI</option>
+        <option value="flask">Flask</option>
+    </select>
+  <!-- Add your site or application content here -->
+  <p>Hello world! This is HTML5 Boilerplate.</p>
+    <form id="calc_service">
+        <p>Primer argumento:  <input type="text" id="arg1"name="arg1" required></p>
+        <p>Segundo argumento: <input type="text" id="arg2" name="arg2" required></p>
+        <p>Operation Type:   
+            <select id="op_type" name="op_type">
+                <option value="sum">Sum</option> 
+                <option value="mult">Multiplication</option> 
+                <option value="div">Division</option>
+                <option value="diff">Subtraction</option>  
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </p>
+
+         <p>Result: <div id="calc_app"></div></p> 
+        
+    </form>
+    <form id="date_service">
+        <label for="date">Pick a Datetime</label>
+            <input type="datetime-local" name="date" 
+            value="2018-06-12T19:30:20" id="date" step="1">
+        
+        <label for="days">Days to add</label>
+            <input type="text" name="days" id="days" required>
+        
+        </select></p>
+            <p><input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </p>
+       <label for="date_app">Final Datetime</label>
+            <div id="date_app"></div>
+
+        
+    </form>
+</body>
+  
+<script src="index.js" type="module"></script>
+
+</html>

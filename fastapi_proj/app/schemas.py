@@ -10,4 +10,4 @@ class ServiceCalculator(BaseModel):
 
 class ServiceDate(BaseModel):
     date : datetime.datetime
-    days : int
+    days : float

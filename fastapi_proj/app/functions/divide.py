@@ -1,8 +1,3 @@
-from pydantic import errors
-
-
-from fastapi import FastAPI, HTTPException
-
 def divide(a: int, b: int) -> int or str:
     """
     Take 2(two) arguments and return the product between them
@@ -10,4 +5,4 @@ def divide(a: int, b: int) -> int or str:
     if b != 0:
         return a/b
     else:
-        raise HTTPException(status_code=400, detail="Division by 0 is not supported")
+        raise ValueError
