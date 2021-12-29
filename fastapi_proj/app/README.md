@@ -1,5 +1,5 @@
 ## Introduction
-This project contains two services, one to make basic calculations and another to add a number of days to a given date
+This directory contains two services, one to make basic calculations and another to add a number of days to a given date
 
 ## First endpoint - Calculator
 The endpoint at `/services/calculator` is able to sum, divide, multiply, and subtract two numbers. The incoming JSON must have the following format.

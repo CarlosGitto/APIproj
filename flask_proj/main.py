@@ -20,7 +20,8 @@ def calculator_service():
     """
     Take a json input with 3 values:
     arg1, agr2 and operation_type
-    then return the result in a json format"""
+    then return the result in a json format
+    """
     request_data = request.get_json()
     value1 = int(request_data["arg1"])
     value2 = int(request_data["arg2"])
@@ -36,9 +37,11 @@ def calculator_service():
 
 @app.route("/services/date-fmt/", methods=['POST'])
 def date_service():
-    """Take a date isoformat
+    """
+    Take a date isoformat
     and a number of days and return 
-    the date with them"""
+    the date with them
+    """
 
     request_data = request.get_json()
 
